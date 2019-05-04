@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>7s</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <h1>7's exercise</h1>
+
+  <h2>Create</h2>
+  <button id="add7">add 7</button>
+  <br><br>
+  <h2>Read</h2>
+  <button>read db</button>
+  <br><br><br>
+  <h2>Update</h2>
+  <label>select ID to update</label>
+  <form>
+    <input>
+    <br>
+    <label>Value from ID</label>
+    <br>
+    <input>
+  </form>
+
+  <br><br><br>
+  <h2>Delete</h2>
+  <label>select ID to deleted</label>
+  <form>
+    <input>
+    <br>
+    <label>Value from ID</label>
+    <br>
+    <input>
+  </form>
+  <script>
+    $(document).ready(function(){
+      $("#add7").click(() => {
+        $.ajax({
+          //proxy: "http://www.domain.com/path/proxy.php" -> to overide default proxy
+          url: 'http://127.0.0.1:3000/add7',
+          success: function(data) {
+            console.log('data from server: ' + JSON.stringify(data));
+          }
+        }).then((res) => console.log(res))
+      });
+
+    })
+  </script>
+</body>
+</html>
